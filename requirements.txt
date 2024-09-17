@@ -35,7 +35,7 @@ pdfminer.six==20231228
 pdfplumber==0.11.4
 Pillow==10.1.0
 protobuf==5.28.1
-psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pyarrow==17.0.0
 pycparser==2.22
 pydeck==0.9.1
