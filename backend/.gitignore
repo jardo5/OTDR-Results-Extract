@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Build output
+build/
+dist/
+*.egg-info/
+
+# Testing
+coverage/
+*.cover
