@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  backend:
+    image: 245012075753.dkr.ecr.us-east-2.amazonaws.com/otdr_backend:latest
+    container_name: otdr_backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    image: 245012075753.dkr.ecr.us-east-2.amazonaws.com/otdr_frontend:latest
+    container_name: otdr_frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    depends_on:
+      - backend

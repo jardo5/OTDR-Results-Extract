@@ -19,13 +19,15 @@ app = FastAPI(
 origins = [
     "https://slcotdr.com",
     "https://www.slcotdr.com",
+    #"http://localhost:3000",
+
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["POST, GET"],
+    allow_methods=["POST", "GET", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -47,8 +49,8 @@ TEMPLATE_PATHS = {
     "1310nm, 1550nm & 1625nm": str(BASE_DIR / 'templates' / 'OTDR_Template_All.xlsx')
 }
 
-# Maximum file size in bytes (10MB)
-MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
+# Maximum file size in bytes (30MB)
+MAX_FILE_SIZE = 30 * 1024 * 1024  # 30 MB
 
 @app.get("/health")
 async def health_check():
