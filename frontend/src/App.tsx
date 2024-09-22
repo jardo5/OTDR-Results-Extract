@@ -79,7 +79,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "/process",
+        "https://otdr-results-extract-abmk.vercel.app/process",
         formData,
         {
           headers: {
