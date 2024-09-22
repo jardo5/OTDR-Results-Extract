@@ -19,7 +19,8 @@ app = FastAPI(
 origins = [
     "https://slcotdr.com",
     "https://www.slcotdr.com",
-    #"http://localhost:3000",
+    "https://otdr-results-extract.vercel.app",
+    "http://localhost:3000",
 
 ]
 
