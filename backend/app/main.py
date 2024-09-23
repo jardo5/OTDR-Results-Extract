@@ -21,6 +21,7 @@ origins = [
     "https://www.slcotdr.com",
     "https://otdr-results-extract.vercel.app",
     "http://localhost:3000",
+    "http://localhost:5300",
 
 ]
 

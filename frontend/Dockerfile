@@ -1,33 +1,28 @@
-# Stage 1: Build the React application
-FROM --platform=linux/arm64 node:18-alpine AS build
+# Stage 1: Build the React app
+FROM node:18-alpine AS build
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --frozen-lockfile
 
-# Copy source files
+# Copy source files and build
 COPY . .
-
-# Build the application
 RUN npm run build
 
-# Stage 2: Serve the React application using Nginx with custom config
-FROM --platform=linux/arm64 nginx:stable-alpine
+# Stage 2: Serve the app with nginx
+FROM nginx:stable-alpine
 
-# Remove default Nginx static assets
-RUN rm -rf /usr/share/nginx/html/*
-
-# Copy build assets from Stage 1
+# Copy the build output to nginx's html directory
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy custom Nginx configuration
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
-EXPOSE 80
+# Expose the uncommon port
+EXPOSE 5300
 
-# Start Nginx server
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
