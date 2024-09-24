@@ -78,16 +78,13 @@ function App() {
     });
 
     try {
-      const response = await axios.post(
-        "https://otdr-results-extract-abmk.vercel.app/process",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          responseType: "blob",
+      const response = await axios.post("http://localhost:8500/process",
+        formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      );
+        responseType: "blob",
+      });
 
       // Create a download link for the Excel file
       const url = window.URL.createObjectURL(new Blob([response.data]));

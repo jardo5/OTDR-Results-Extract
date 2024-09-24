@@ -6,23 +6,26 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+RUN npm install
 
 # Copy source files and build
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve the app with nginx
+# Stage 2: Serve the app with Nginx
 FROM nginx:stable-alpine
 
-# Copy the build output to nginx's html directory
+# Remove default Nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy the build output to Nginx's html directory
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy custom nginx configuration
+# Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the uncommon port
-EXPOSE 5300
+EXPOSE 80
 
-# Start nginx
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
