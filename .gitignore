@@ -63,8 +63,8 @@ Dockerfile.local
 package
 backend.zip
 
-frontend/src/App.tsx
-backend/app/main.py
-
 # Ignore App.tsx file
 App.tsx
+
+main.py
+utils.py

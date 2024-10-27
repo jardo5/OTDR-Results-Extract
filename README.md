@@ -60,8 +60,6 @@ The **OTDR-Results-Extract** is a web-based tool built using **React** for the f
 3. ```
 	Using the terminal cd into otdr-results-extract and docker-compose up. 
 	```
-
-  
   
   
 
