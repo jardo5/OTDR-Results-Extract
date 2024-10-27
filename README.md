@@ -22,6 +22,15 @@ The **OTDR-Results-Extract** is a web-based tool built using **React** for the f
 
 **THIS IS AN INTERNAL TOOL USED BY SLC. NOT ALL FEATURES ARE INCLUDED.**
 
+## Running Application
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/otdr-results-extract.git
+   cd otdr-results-extract
+   ```
+2. **Install Docker and Docker Compose**
+3.
+
 
 
 ## Features

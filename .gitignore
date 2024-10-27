@@ -62,3 +62,6 @@ Dockerfile.local
 
 package
 backend.zip
+
+frontend/src/App.tsx
+backend/app/main.py
